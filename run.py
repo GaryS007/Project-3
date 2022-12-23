@@ -3,20 +3,19 @@ import random
 words = ["orange", "apple"]  # List of words
 
 picked_word = random.choice(words)  # Picks a word from words
-blank_word = "_"*len(picked_word)
 length = len(picked_word)
 
 print(
     f"Your random word has {length} letters"
     )
 
-correct = ['_']*len(picked_word)
-incorrect = []
+correct = ['_']*len(picked_word)  # _ x length of word from picked_word
+incorrect = []  # All incorrect guesses go here.
 
 
 def replace_blank():
     """
-    This function is designed to replace the '_' 
+    This function is designed to replace the '_'
     in the "correct" variable with the player_guess in picked_word.
     """
     for i in correct:
@@ -29,20 +28,30 @@ while True:
     print('....................................')
 
     player_guess = input(
-        "Guess a letter: "
+        "Want to live? Then guess a letter: "
     )
 
     if player_guess in picked_word:
+        # This if statement sets index to 0
+        # and iterates through each letter within picked_word.
+        # Then calls the function to replace _ with player_guess
         index = 0
         for i in picked_word:
             if i == player_guess:
-                correct[index] = player_guess
+                correct[index] = player_guess   
             index += 1
         replace_blank()
         
     else:
         if player_guess not in incorrect:
+            # Checks if players guess is already guessed, 
+            # if not, append to incorrect list.
             incorrect.append(player_guess)
+            print(f"{player_guess} is not in the word")    
         else:
             print(f"You already guessed {player_guess}, try another letter.")
-    
+    if '_' not in correct:
+        # Checks if there is any underscores left in correct,
+        # if no _ found, break from loop.
+        print('You win, there will be no hanging today!')
+        break
