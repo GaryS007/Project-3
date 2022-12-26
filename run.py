@@ -1,10 +1,11 @@
-import random
+import random  # Imports random module for my game
 
-words = ["orange", "apple"]  # List of words
+from words import words  # List of words
 
 picked_word = random.choice(words)  # Picks a word from words
 length = len(picked_word)
 
+print("Welcome to Hangman, Good luck! \n")
 print(f"Your random word has {length} letters")
 
 correct = ["_"] * length  # _ x length of word from picked_word
@@ -37,20 +38,22 @@ while True:
                 correct[index] = player_guess
             index += 1
         replace_blank()
+        print(f"You guessed correct! {player_guess} is in the word")
 
     else:
         if player_guess not in incorrect:
             # Checks if players guess is already guessed,
             # if not, append to incorrect list.
             incorrect.append(player_guess)
-            print(f"{player_guess} is not in the word, try again.")
+            print(f"{player_guess} is not in the word, try again. \n")
             print(f"Your incorrect guesses so far: {incorrect}")
         else:
             print(f"You already guessed {player_guess}, try another letter.")
     if len(incorrect) == 1:
+        replace_blank()
         print(
             "   _____ \n"
-            "  |      \n"
+            "  |     | \n"
             "  |      \n"
             "  |      \n"
             "  |      \n"
@@ -59,6 +62,7 @@ while True:
             "__|__\n"
         )
     if len(incorrect) == 2:
+        replace_blank()
         print(
             "   _____ \n"
             "  |     | \n"
@@ -70,6 +74,7 @@ while True:
             "__|__\n"
         )
     if len(incorrect) == 3:
+        replace_blank()
         print(
             "   _____ \n"
             "  |     | \n"
@@ -81,6 +86,7 @@ while True:
             "__|__\n"
         )
     if len(incorrect) == 4:
+        replace_blank()
         print(
             "   _____ \n"
             "  |     | \n"
@@ -92,6 +98,7 @@ while True:
             "__|__\n"
         )
     if len(incorrect) == 5:
+        replace_blank()
         print(
             "   _____ \n"
             "  |     | \n"
