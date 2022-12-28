@@ -27,11 +27,11 @@ while True:
     print("....................................")
 
     player_guess = input("Want to live? Then guess a letter: ")
-    if player_guess.isalpha() is False:
+    if len(player_guess) > 1:
+        print("Please only enter 1 letter at a time.")
+    elif player_guess.isalpha() is False:
         # Checks to ensure that the input is a letter
         print("Only letters are allowed!")
-    elif len(player_guess) > 1:
-        print("Please only enter 1 letter at a time.")
     elif player_guess in picked_word:
         # This if statement sets index to 0
         # and iterates through each letter within picked_word
@@ -43,76 +43,74 @@ while True:
             index += 1
         replace_blank()
         print(f"You guessed correct! {player_guess} is in the word")
-    elif len(incorrect) == 1:
-        print(
-            "   _____ \n"
-            "  |     | \n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "__|__\n"
-        )
-    elif len(incorrect) == 2:
-        print(
-            "   _____ \n"
-            "  |     | \n"
-            "  |     O\n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "__|__\n"
-        )
-    elif len(incorrect) == 3:
-        print(
-            "   _____ \n"
-            "  |     | \n"
-            "  |     O\n"
-            "  |     | \n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "__|__\n"
-        )
-    elif len(incorrect) == 4:
-        print(
-            "   _____ \n"
-            "  |     | \n"
-            "  |     O\n"
-            "  |    /|\ \n"
-            "  |      \n"
-            "  |      \n"
-            "  |      \n"
-            "__|__\n"
-        )
-    elif len(incorrect) == 5:
-        print(
-            "   _____ \n"
-            "  |     | \n"
-            "  |     O \n"
-            "  |    /|\ \n"
-            "  |    / \ \n"
-            "__|__\n"
-        )
-        print(f"RIP, better luck next time! The word was '{picked_word}'")
-        break
-        # incorrect is a list that contains the incorrect guesses of the player
-        # If the length of incorrect is equal to 5, game over.
     elif "_" not in correct:
         # Checks if there is any underscores left in correct,
         # if no _ found, break from loop.
         print("You win, there will be no hanging today!")
         break
-    else:
-        if player_guess not in incorrect:
-            # Checks if players guess is already guessed,
-            # if not, append to incorrect list.
-            incorrect.append(player_guess)
+    elif player_guess not in incorrect:
+        # Checks if players guess is already guessed,
+        # if not, append to incorrect list.
+        incorrect.append(player_guess)
 
-            print(f"{player_guess} is not in the word, try again. \n")
-            print(f"Your incorrect guesses so far: {incorrect}")
-            replace_blank()
-        else:
-            print(f"You already guessed {player_guess}, try another letter.")
+        print(f"{player_guess} is not in the word, try again. \n")
+        print(f"Your incorrect guesses so far: {incorrect}")
+        replace_blank()
+        if len(incorrect) == 1:
+            print(
+                "   _____ \n"
+                "  |     | \n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "__|__\n"
+            )
+        elif len(incorrect) == 2:
+            print(
+                "   _____ \n"
+                "  |     | \n"
+                "  |     O\n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "__|__\n"
+            )
+        elif len(incorrect) == 3:
+            print(
+                "   _____ \n"
+                "  |     | \n"
+                "  |     O\n"
+                "  |     | \n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "__|__\n"
+            )
+        elif len(incorrect) == 4:
+            print(
+                "   _____ \n"
+                "  |     | \n"
+                "  |     O\n"
+                "  |    /|\ \n"
+                "  |      \n"
+                "  |      \n"
+                "  |      \n"
+                "__|__\n"
+            )
+        elif len(incorrect) == 5:
+            print(
+                "   _____ \n"
+                "  |     | \n"
+                "  |     O \n"
+                "  |    /|\ \n"
+                "  |    / \ \n"
+                "__|__\n"
+            )
+            print(f"RIP, better luck next time! The word was '{picked_word}'")
+            break
+            # If the length of incorrect is equal to 5, game over.
+    else:
+        print(f"You already guessed {player_guess}, try another letter.")
