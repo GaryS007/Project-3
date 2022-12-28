@@ -28,10 +28,13 @@ while True:
 
     player_guess = input("Want to live? Then guess a letter: ")
     if player_guess.isalpha() is False:
+        # Checks to ensure that the input is a letter
         print("Only letters are allowed!")
+    elif len(player_guess) > 1:
+        print("Please only enter 1 letter at a time.")
     elif player_guess in picked_word:
         # This if statement sets index to 0
-        # and iterates through each letter within picked_word.
+        # and iterates through each letter within picked_word
         # Then calls the function to replace _ with player_guess
         index = 0
         for i in picked_word:
