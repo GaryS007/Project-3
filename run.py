@@ -66,8 +66,15 @@ def start_game():
             if "_" not in correct:
                 # Checks if there is any underscores left in correct,
                 # if no _ found, break from loop.
-                print("You win, there will be no hanging today!")
-                break
+                print("You win, there will be no hanging today!\n")
+                restart = input("Play again y/n?: ").lower()
+                if restart.startswith("y"):
+                    incorrect.clear()
+                    correct.clear()
+                    generate_word()
+                else:
+                    print("Thank you for playing.")
+                    break
         else:
             # Checks if players guess is already guessed,
             # if not, append to incorrect list.
