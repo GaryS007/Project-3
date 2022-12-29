@@ -42,6 +42,7 @@ def start_game():
         print("....................................")
 
         player_guess = input("Want to live? Then guess a letter: ")
+        print()
         if len(player_guess) > 1:
             # Prevents player from entering more than 1 character at a time
             print("Please only enter 1 letter at a time.")
@@ -60,8 +61,8 @@ def start_game():
                 if i == player_guess:
                     correct[index] = player_guess
                 index += 1
+            print(f"You guessed correct! {player_guess} is in the word \n")
             replace_blank()
-            print(f"You guessed correct! {player_guess} is in the word")
             if "_" not in correct:
                 # Checks if there is any underscores left in correct,
                 # if no _ found, break from loop.
