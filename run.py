@@ -20,11 +20,11 @@ def replace_blank():
     """
     for i in correct:
         print(i, end=" ")
-    print()
+    print()   
 
 
 def start_game():
-    """ 
+    """
     Start game function
     """
     while True:
@@ -119,10 +119,27 @@ def start_game():
                     "  |    / \ \n"
                     "__|__\n"
                 )
-                print(f"RIP, better luck next time! The word was '{picked_word}'")
+                print("RIP, better luck next time!")
+                print(f"The word was '{picked_word}'")
                 break
                 # If the length of incorrect is equal to 5, game over.
         else:
             print(f"You already guessed {player_guess}, try another letter.")
 
+
 start_game()
+
+
+def play_again():
+    """
+    Allow the user to restart the game. 
+    """
+    restart = input("Play again y/n?: ").lower()
+    if restart.startswith("y"):
+        start_game()
+    else:
+        print("Thank you for playing.")
+
+
+play_again()
+
