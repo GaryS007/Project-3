@@ -2,15 +2,12 @@ import random  # Imports random module for my game
 
 from words import words  # List of words
 
-picked_word = random.choice(words)  # Picks a word from words
-length = len(picked_word)
+picked_word = None  # Picks a word from words
+correct = None
+incorrect = []  # All incorrect guesses go here.
 
 print("Welcome to Hangman, you have 5 chances to save your life.")
 print("Good Luck! \n")
-print(f"Your random word has {length} letters")
-
-correct = ["_"] * length  # _ x length of word from picked_word
-incorrect = []  # All incorrect guesses go here.
 
 
 def replace_blank():
@@ -23,11 +20,24 @@ def replace_blank():
     print()
 
 
+def generate_word():
+    """
+    This function generates a random word.
+    """
+    global picked_word, correct
+
+    picked_word = random.choice(words)
+    length = len(picked_word)
+    correct = ["_"] * length  # _ x length of word from picked_word
+
+    print(f"Your random word has {length} letters")
+
+
 def start_game():
     """
     Start game function
     """
-    while True:
+    while len(incorrect) < 5:
 
         print("....................................")
 
@@ -38,6 +48,9 @@ def start_game():
         elif player_guess.isalpha() is False:
             # Prevents player from entering numbers or special characters
             print("Only letters are allowed!")
+        elif player_guess in incorrect or player_guess in correct:
+            # Checks if player_guess is a duplicate
+            print(f"You already guessed {player_guess}, try another letter.")
         elif player_guess in picked_word:
             # This if statement sets index to 0
             # and iterates through each letter within picked_word
@@ -49,12 +62,12 @@ def start_game():
                 index += 1
             replace_blank()
             print(f"You guessed correct! {player_guess} is in the word")
-        elif "_" not in correct:
-            # Checks if there is any underscores left in correct,
-            # if no _ found, break from loop.
-            print("You win, there will be no hanging today!")
-            break
-        elif player_guess not in incorrect:
+            if "_" not in correct:
+                # Checks if there is any underscores left in correct,
+                # if no _ found, break from loop.
+                print("You win, there will be no hanging today!")
+                break
+        else:
             # Checks if players guess is already guessed,
             # if not, append to incorrect list.
             incorrect.append(player_guess)
@@ -103,7 +116,7 @@ def start_game():
                     "   _____ \n"
                     "  |     | \n"
                     "  |     O\n"
-                    "  |    /|\ \n"
+                    "  |    /|\\ \n"
                     "  |      \n"
                     "  |      \n"
                     "  |      \n"
@@ -115,8 +128,8 @@ def start_game():
                     "   _____ \n"
                     "  |     | \n"
                     "  |     O \n"
-                    "  |    /|\ \n"
-                    "  |    / \ \n"
+                    "  |    /|\\ \n"
+                    "  |    / \\ \n"
                     "__|__\n"
                 )
                 print("RIP, better luck next time!")
@@ -124,13 +137,13 @@ def start_game():
                 restart = input("Play again y/n?: ").lower()
                 if restart.startswith("y"):
                     incorrect.clear()
-                    start_game()
+                    correct.clear()
+                    generate_word()
                 else:
                     print("Thank you for playing.")
                     break
                 # If the length of incorrect is equal to 5, game over.
-        else:
-            print(f"You already guessed {player_guess}, try another letter.")
 
 
+generate_word()
 start_game()
