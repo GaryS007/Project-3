@@ -68,6 +68,18 @@ This also allows me to check if the player already guessed a letter.
 
 The entire game runs on a While loop and the loop will end when total guesses reaches 5.
 
+## User Experience
+
+* Player is greeted with relevant messaging and instructions to play the game.
+* a Random Word will be chosen so the player can start guessing.
+* Player can now enter a letter into the input field.
+* After guessing a letter, the player should know if their guess is right or wrong.
+* After guessing a letter, the player should know how many guesses remain if they got it wrong.
+* After guessing the word correctly, the player should be informed that they are victorious.
+* If the player guessed the word incorrectly, they should be informed that they have lost and be told what the word was.
+* The player should then be given the option to restart the game.
+
+
 ## Testing
 
 I have manually tested my project throughout the entire process of building it by doing the following:
@@ -114,7 +126,7 @@ Having it in bite sized chunks really helped me to get started on the coding sid
 ## Credits
 
 * I found inspiration for the hangman drawings [here](https://itsourcecode.com/free-projects/python-projects/hangman-game-in-python-with-source-code/)
-    * I made changes to this to suit my game better and also fixed a lint issue with the arms and legs due to using \. 
+    * I made changes to this to suit my game better and also fixed a lint issue with the arms and legs due to using backslash(\). 
 * I used this website to generate a [list of words](https://www.randomlists.com/random-words).
 * I watched a variety of Youtube videos to get inspiration on my approach to building the game. 
     * [Video 1](https://www.youtube.com/watch?v=cJJTnI22IF8&t=103s&ab_channel=KylieYing) / [Video 2](https://www.youtube.com/watch?v=pFvSb7cb_Us&ab_channel=ShaunHalverson) / [Video 3](https://www.youtube.com/watch?v=6G4n3oY5Svo&ab_channel=YujianTang)
