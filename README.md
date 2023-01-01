@@ -97,6 +97,7 @@ I noticed the bugs during testing and realised that my if / elif indentation was
 To solve this I removed the recursion and instead changed how the while loop works so I didn't need to call the function a second time.
 * Due to how I did my Hangman drawings, Gitpod / VS Code kept giving me an error due to the \ used for the arms and legs. To fix this I had to do \\ instead of a single \.
 This fix was not 100% necessary as the game functioned perfectly regardless.
+* As I was about to deploy, I realised that I never added a try: except: for CTRL C, it threw an error I didn't like. 
 
 ### Remaining Bugs
 
