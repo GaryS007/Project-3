@@ -109,7 +109,7 @@ This project was deployed using Heroku.
 Before starting with my project in Gitpod, I started writing down the steps my game would take in order to complete.
 Having it in bite sized chunks really helped me to get started on the coding side of things.
 
-![Flowchart for my Python Project](https://garys007.github.io/Project-3/assets/images/random.png)
+![Flowchart for my Python Project](https://garys007.github.io/Project-3/assets/images/mock.png)
 
 ## Credits
 
