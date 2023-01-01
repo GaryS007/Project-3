@@ -26,17 +26,23 @@ After the player wins or loses, the game will reset and ask the player if they w
     * The amount of letters in the word is communicated to the player
     * The word is encrypted using underscores for each letter.
     * A successful guess will replace the underscore with the correct letter guessed.
+
 ![Picture of randomly generated word](https://garys007.github.io/Project-3/assets/images/random.png)
 
 * Accepts letter inputs by the player.
+
 ![Enter your letter guess here](https://garys007.github.io/Project-3/assets/images/letter.png)
+
 * Remaining guesses is maintained and displayed throughout the game.
-![Displaying remaining guesses](https://garys007.github.io/Project-3/assets/images/gusses.png)
+
+![Displaying remaining guesses](https://garys007.github.io/Project-3/assets/images/guesses.png)
+
 * Input validation and error-checking
     * You cannot enter numbers or special characters
     * You must enter letters
     * You cannot enter multiple characters at the same time
     * You cannot enter the same guess more than once
+
 ![Error handling](https://garys007.github.io/Project-3/assets/images/errors.png)
 
 ### Future Features
@@ -108,5 +114,5 @@ Having it in bite sized chunks really helped me to get started on the coding sid
 ## Credits
 
 * I found inspiration for the hangman drawings [here](https://itsourcecode.com/free-projects/python-projects/hangman-game-in-python-with-source-code/)
-    * I made changes to this to suit my game better and also fixed a lint issue with the arms and legs.
+    * I made changes to this to suit my game better and also fixed a lint issue with the arms and legs due to using \. 
 * I used this website to generate a [list of words](https://www.randomlists.com/random-words).
