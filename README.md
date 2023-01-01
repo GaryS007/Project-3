@@ -1,31 +1,112 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman Game
 
-Welcome GaryS007,
+Hangman is a Python terminal game that can be accessed and played via Heroku. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Players can start playing by simply guessing a letter. The player has 5 attempts to guess the word. 
 
-## Reminders
+[Live version of my game](https://gary-project-3.herokuapp.com/)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+![Picture of my game](https://garys007.github.io/Project-3/assets/images/responsive.png)
 
-## Creating the Heroku app
+## How to play
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Hangman is a game that I've played on paper since my childhood. A word is selected by random and the amount of letters in the world is communicated to the player.
+To start playing, follow the instructions by entering your first letter (guess).
+The game will then let you know if your guess is correct or incorrect. 
+The score of the game will be consistently communicated to the player after each incorrect guess. 
+The list of incorrect guesses is displayed as well as a text based 'image' of the hangman we're all so used to seeing. 
+The player can win by guessing the word within 5 guesses. 
+After the player wins or loses, the game will reset and ask the player if they want to try again.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Features
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Existing Features
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* Random Word generated for each new game.
+    * The amount of letters in the word is communicated to the player
+    * The word is encrypted using underscores for each letter.
+    * A successful guess will replace the underscore with the correct letter guessed.
+![Picture of randomly generated word](https://garys007.github.io/Project-3/assets/images/random.png)
 
-Connect your GitHub repository and deploy as normal.
+* Accepts letter inputs by the player.
+![Enter your letter guess here](https://garys007.github.io/Project-3/assets/images/letter.png)
+* Remaining guesses is maintained and displayed throughout the game.
+![Displaying remaining guesses](https://garys007.github.io/Project-3/assets/images/gusses.png)
+* Input validation and error-checking
+    * You cannot enter numbers or special characters
+    * You must enter letters
+    * You cannot enter multiple characters at the same time
+    * You cannot enter the same guess more than once
+![Error handling](https://garys007.github.io/Project-3/assets/images/errors.png)
 
-## Constraints
+### Future Features
+* Add a larger library of words
+* Add differences in difficulty based on number of letters.
+    * If word is less than 4 letters, only give player 3 guesses.
+    * If word is larger than 10 letters, give player 6 guesses.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Data Model
+I used global variables to store the data as the player continues to play the game.
 
------
-Happy coding!
+The picked_word variable will store the randomly generated word from the generate_word() function. 
+The length of this word is calculated by this function and communicated to the player.
+The words are extracted from a separate python file called words.py.
+
+The correct variable stores all correct guesses made by the player. 
+This allows me to check if the player already guessed a letter.
+It also allows me to check if the player has won the game. Once all the _ (underscores) are replaced with a correct letter,
+they win the game.
+
+The incorrect variable tracks all incorrect guesses. The game ends when the player has a total of 5 incorrect guesses.
+This also allows me to check if the player already guessed a letter.
+
+The entire game runs on a While loop and the loop will end when total guesses reaches 5.
+
+## Testing
+
+I have manually tested my project throughout the entire process of building it by doing the following:
+* Launch my game by using python3 run.py within Gitpod and test my game after every change.
+* Test specific scenarios such as number entries, multiple character entries and duplicate inputs.
+* Test using the Code Institute Heroku Terminal to check that everything is ok.
+
+### Bugs
+
+**Fixed Bugs**
+
+* After I made the primary while loop for my game. When I implemented more complex code or scenarios, I inadvertenly broke my game without realising it. 
+I noticed the bugs during testing and realised that my if / elif indentation was incorrect. This made me be very careful with indentation moving forward.
+* I was calling the primary start_game() function within the function. I learned that this is known as recursion and should be avoided where possible. 
+To solve this I removed the recursion and instead changed how the while loop works so I didn't need to call the function a second time.
+* Due to how I did my Hangman drawings, Gitpod / VS Code kept giving me an error due to the \ used for the arms and legs. To fix this I had to do \\ instead of a single \.
+This fix was not 100% necessary as the game functioned perfectly regardless.
+
+### Remaining Bugs
+
+* No bugs remaining.
+
+### Validator Testing
+
+* PEP8
+    * No errors were returned from https://pep8ci.herokuapp.com/
+
+## Deployment
+
+This project was deployed using Heroku.
+
+* Create a new Heroku App via Heroku Dashboard.
+* Set the buildbacks to Python and NodeJS in that order.
+* Link the Heroku App to the appropriate Github repository.
+* Click **Deploy**
+
+## Mock / Flowchart
+
+Before starting with my project in Gitpod, I started writing down the steps my game would take in order to complete.
+Having it in bite sized chunks really helped me to get started on the coding side of things.
+
+![Flowchart for my Python Project](https://garys007.github.io/Project-3/assets/images/random.png)
+
+## Credits
+
+* I found inspiration for the hangman drawings [here](https://itsourcecode.com/free-projects/python-projects/hangman-game-in-python-with-source-code/)
+    * I made changes to this to suit my game better and also fixed a lint issue with the arms and legs.
+* I used this website to generate a [list of words](https://www.randomlists.com/random-words).
