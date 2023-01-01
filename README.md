@@ -116,3 +116,6 @@ Having it in bite sized chunks really helped me to get started on the coding sid
 * I found inspiration for the hangman drawings [here](https://itsourcecode.com/free-projects/python-projects/hangman-game-in-python-with-source-code/)
     * I made changes to this to suit my game better and also fixed a lint issue with the arms and legs due to using \. 
 * I used this website to generate a [list of words](https://www.randomlists.com/random-words).
+* I watched a variety of Youtube videos to get inspiration on my approach to building the game. 
+    * [Video 1](https://www.youtube.com/watch?v=cJJTnI22IF8&t=103s&ab_channel=KylieYing) / [Video 2](https://www.youtube.com/watch?v=pFvSb7cb_Us&ab_channel=ShaunHalverson) / [Video 3](https://www.youtube.com/watch?v=6G4n3oY5Svo&ab_channel=YujianTang)
+* Big thank you to the slack crew for helping me and motivating me along the way.    
