@@ -1,4 +1,5 @@
 import random  # Imports random module for my game
+import sys  # Imports sys module for my game
 
 from words import words  # List of words
 
@@ -153,5 +154,10 @@ def start_game():
                 # If the length of incorrect is equal to 5, game over.
 
 
-generate_word()
-start_game()
+try:
+    generate_word()
+    start_game()
+except KeyboardInterrupt:
+    # quit
+    print("\nCTRL + C Ends the game. Thank you for playing")
+    sys.exit()
